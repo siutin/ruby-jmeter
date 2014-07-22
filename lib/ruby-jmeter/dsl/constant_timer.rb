@@ -12,9 +12,11 @@ module RubyJmeter
 
     def initialize(params={})
       testname = params.kind_of?(Array) ? 'ConstantTimer' : (params[:name] || 'ConstantTimer')
+      deplay = params.kind_of?(Array) ? '300' : (params[:delay] || '300')
+
       @doc = Nokogiri::XML(<<-EOS.strip_heredoc)
 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="#{testname}" enabled="true">
-  <stringProp name="ConstantTimer.delay">300</stringProp>
+  <stringProp name="ConstantTimer.delay">#{deplay}</stringProp>
 </ConstantTimer>)
       EOS
       update params
