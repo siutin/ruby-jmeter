@@ -15,6 +15,7 @@ module RubyJmeter
       @doc = Nokogiri::XML(<<-EOS.strip_heredoc)
 <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="#{testname}" enabled="true">
   <boolProp name="ResultCollector.error_logging">false</boolProp>
+  <boolProp name="ResultCollector.success_only_logging">false</boolProp>
   <objProp>
     <name>saveConfig</name>
     <value class="SampleSaveConfiguration">
